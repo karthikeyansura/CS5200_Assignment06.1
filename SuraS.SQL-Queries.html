@@ -11,6 +11,7 @@
 
 <meta name="author" content="Sai Karthikeyan, Sura" />
 
+<meta name="date" content="2025-02-18" />
 
 <title>Assignment 06.1</title>
 
@@ -352,14 +353,14 @@ display: none;
 <h1 class="title toc-ignore">Assignment 06.1</h1>
 <h3 class="subtitle">Query a Database with SQL</h3>
 <h4 class="author">Sai Karthikeyan, Sura</h4>
-<h4 class="date">Spring 2025</h4>
+<h4 class="date">02/18/2025</h4>
 
 </div>
 
 
-<div id="what-are-the-names-and-contacts-of-all-suppliers-sorted-by-contact-name" class="section level3">
-<h3>1. What are the names and contacts of all suppliers, sorted by
-contact name?</h3>
+<div id="what-are-the-names-and-contacts-of-all-suppliers-sorted-by-contact-name" class="section level2">
+<h2>1. What are the names and contacts of all suppliers, sorted by
+contact name?</h2>
 <pre class="sql"><code>SELECT SupplierName, ContactName, Phone
 FROM Suppliers
 ORDER BY ContactName;</code></pre>
@@ -433,9 +434,9 @@ ORDER BY ContactName;</code></pre>
 </table>
 </div>
 </div>
-<div id="what-are-the-number-of-suppliers-for-each-country-list-the-country-and-the-number-of-suppliers-renamed-to-numsuppliers." class="section level3">
-<h3>2. What are the number of suppliers for each country? List the
-country and the number of suppliers renamed to ‘NumSuppliers’.</h3>
+<div id="what-are-the-number-of-suppliers-for-each-country-list-the-country-and-the-number-of-suppliers-renamed-to-numsuppliers." class="section level2">
+<h2>2. What are the number of suppliers for each country? List the
+country and the number of suppliers renamed to ‘NumSuppliers’.</h2>
 <pre class="sql"><code>SELECT Country, COUNT(*) AS NumSuppliers
 FROM Suppliers
 GROUP BY Country
@@ -494,10 +495,10 @@ ORDER BY Country;</code></pre>
 </table>
 </div>
 </div>
-<div id="list-the-number-of-orders-by-customer-id-and-name-ordered-from-least-to-most-restricted-to-those-customers-who-have-placed-at-least-one-order." class="section level3">
-<h3>3. List the number of orders by customer ID and name, ordered from
+<div id="list-the-number-of-orders-by-customer-id-and-name-ordered-from-least-to-most-restricted-to-those-customers-who-have-placed-at-least-one-order." class="section level2">
+<h2>3. List the number of orders by customer ID and name, ordered from
 least to most, restricted to those customers who have placed at least
-one order.</h3>
+one order.</h2>
 <pre class="sql"><code>SELECT C.CustomerID, C.CustomerName, COUNT(O.OrderID) AS OrderCount
 FROM Customers C
 JOIN Orders O ON C.CustomerID = O.CustomerID
@@ -569,8 +570,8 @@ ORDER BY OrderCount ASC;</code></pre>
 </table>
 </div>
 </div>
-<div id="what-is-the-order-id-of-the-most-recent-order" class="section level3">
-<h3>4. What is the order id of the most recent order?</h3>
+<div id="what-is-the-order-id-of-the-most-recent-order" class="section level2">
+<h2>4. What is the order id of the most recent order?</h2>
 <pre class="sql"><code>SELECT OrderID
 FROM Orders
 ORDER BY OrderDate DESC
@@ -591,9 +592,9 @@ LIMIT 1;</code></pre>
 </table>
 </div>
 </div>
-<div id="what-are-the-total-number-of-unique-orders-delivered-by-each-shipper-ordered-alphabetically-by-shipper-name" class="section level3">
-<h3>5. What are the total number of unique orders delivered by each
-shipper, ordered alphabetically by shipper name?</h3>
+<div id="what-are-the-total-number-of-unique-orders-delivered-by-each-shipper-ordered-alphabetically-by-shipper-name" class="section level2">
+<h2>5. What are the total number of unique orders delivered by each
+shipper, ordered alphabetically by shipper name?</h2>
 <pre class="sql"><code>SELECT S.ShipperName, COUNT(DISTINCT O.OrderID) AS TotalOrders
 FROM Shippers S
 JOIN Orders O ON S.ShipperID = O.ShipperID
@@ -625,9 +626,9 @@ ORDER BY S.ShipperName;</code></pre>
 </table>
 </div>
 </div>
-<div id="how-many-employees-never-worked-with-a-single-customer-i.e.-they-appear-in-the-employees-table-but-not-in-the-orders-table" class="section level3">
-<h3>6. How many employees never worked with a single customer, i.e.,
-they appear in the Employees table but not in the Orders table?</h3>
+<div id="how-many-employees-never-worked-with-a-single-customer-i.e.-they-appear-in-the-employees-table-but-not-in-the-orders-table" class="section level2">
+<h2>6. How many employees never worked with a single customer, i.e.,
+they appear in the Employees table but not in the Orders table?</h2>
 <pre class="sql"><code>SELECT COUNT(*) AS EmployeesWithoutOrders
 FROM Employees E
 LEFT JOIN Orders O ON E.EmployeeID = O.EmployeeID
@@ -648,9 +649,9 @@ WHERE O.OrderID IS NULL;</code></pre>
 </table>
 </div>
 </div>
-<div id="how-many-products-contain-louisiana-at-the-beginning-of-the-name-of-the-product" class="section level3">
-<h3>7. How many products contain “Louisiana” at the beginning of the
-name of the product?</h3>
+<div id="how-many-products-contain-louisiana-at-the-beginning-of-the-name-of-the-product" class="section level2">
+<h2>7. How many products contain “Louisiana” at the beginning of the
+name of the product?</h2>
 <pre class="sql"><code>SELECT COUNT(*) AS LouisianaProducts
 FROM Products
 WHERE ProductName LIKE &#39;Louisiana%&#39;;</code></pre>
@@ -670,9 +671,9 @@ WHERE ProductName LIKE &#39;Louisiana%&#39;;</code></pre>
 </table>
 </div>
 </div>
-<div id="what-is-the-total-number-of-distinct-countries-to-which-at-least-one-order-was-shipped" class="section level3">
-<h3>8. What is the total number of distinct countries to which at least
-one order was shipped?</h3>
+<div id="what-is-the-total-number-of-distinct-countries-to-which-at-least-one-order-was-shipped" class="section level2">
+<h2>8. What is the total number of distinct countries to which at least
+one order was shipped?</h2>
 <pre class="sql"><code>SELECT COUNT(DISTINCT C.Country) AS DistinctCountryWithOrders
 FROM Customers C
 JOIN ORDERS O ON C.CustomerID = O.CustomerID;</code></pre>
@@ -692,10 +693,10 @@ JOIN ORDERS O ON C.CustomerID = O.CustomerID;</code></pre>
 </table>
 </div>
 </div>
-<div id="what-is-the-total-amount-in-terms-of-revenue-as-well-as-the-total-number-of-orders-sold-by-each-employee-list-the-employee-name-the-total-amount-sold-and-the-total-number-of-orders." class="section level3">
-<h3>9. What is the total amount (in terms of revenue) as well as the
+<div id="what-is-the-total-amount-in-terms-of-revenue-as-well-as-the-total-number-of-orders-sold-by-each-employee-list-the-employee-name-the-total-amount-sold-and-the-total-number-of-orders." class="section level2">
+<h2>9. What is the total amount (in terms of revenue) as well as the
 total number of orders sold by each employee? List the employee name,
-the total amount sold, and the total number of orders.</h3>
+the total amount sold, and the total number of orders.</h2>
 <pre class="sql"><code>SELECT E.FirstName, E.LastName, SUM(OD.Quantity * P.Price) AS TotalRevenue, COUNT(DISTINCT O.OrderID) AS TotalOrders
 FROM Employees E
 JOIN Orders O ON E.EmployeeID = O.EmployeeID
@@ -773,9 +774,9 @@ ORDER BY TotalRevenue DESC;</code></pre>
 </table>
 </div>
 </div>
-<div id="which-supplier-sells-the-least-number-of-products-and-supplies-at-least-one-product" class="section level3">
-<h3>10. Which supplier sells the least number of products and supplies
-at least one product?</h3>
+<div id="which-supplier-sells-the-least-number-of-products-and-supplies-at-least-one-product" class="section level2">
+<h2>10. Which supplier sells the least number of products and supplies
+at least one product?</h2>
 <pre class="sql"><code>WITH SupplierProductCounts AS (
     SELECT S.SupplierName, COUNT(P.ProductID) AS ProductCount
     FROM Suppliers S
@@ -807,9 +808,9 @@ WHERE ProductCount = (SELECT MIN(ProductCount) FROM SupplierProductCounts WHERE 
 </table>
 </div>
 </div>
-<div id="which-product-was-ordered-most-often-by-different-customers" class="section level3">
-<h3>11. Which product was ordered most often by different
-customers?</h3>
+<div id="which-product-was-ordered-most-often-by-different-customers" class="section level2">
+<h2>11. Which product was ordered most often by different
+customers?</h2>
 <pre class="sql"><code>WITH ProductOrders AS (
     SELECT P.ProductName, COUNT(DISTINCT O.CustomerID) AS OrderCount
     FROM Products P
@@ -836,8 +837,8 @@ WHERE OrderCount = (SELECT MAX(OrderCount) FROM ProductOrders);</code></pre>
 </table>
 </div>
 </div>
-<div id="which-product-has-the-most-number-of-units-sold" class="section level3">
-<h3>12. Which product has the most number of units sold?</h3>
+<div id="which-product-has-the-most-number-of-units-sold" class="section level2">
+<h2>12. Which product has the most number of units sold?</h2>
 <pre class="sql"><code>WITH ProductSales AS (
     SELECT P.ProductName, SUM(OD.Quantity) AS TotalUnitsSold
     FROM Products P
@@ -863,9 +864,9 @@ WHERE TotalUnitsSold = (SELECT MAX(TotalUnitsSold) FROM ProductSales);</code></p
 </table>
 </div>
 </div>
-<div id="what-is-the-total-amount-spent-by-all-customers-who-live-in-either-usa-or-canada" class="section level3">
-<h3>13. What is the total amount spent by all customers who live in
-either USA or Canada?</h3>
+<div id="what-is-the-total-amount-spent-by-all-customers-who-live-in-either-usa-or-canada" class="section level2">
+<h2>13. What is the total amount spent by all customers who live in
+either USA or Canada?</h2>
 <pre class="sql"><code>SELECT SUM(P.Price * OD.Quantity) AS TotalAmountSpent
 FROM Orders O
 JOIN Customers C ON O.CustomerID = C.CustomerID
@@ -888,9 +889,9 @@ WHERE C.Country IN (&#39;USA&#39;, &#39;Canada&#39;);</code></pre>
 </table>
 </div>
 </div>
-<div id="what-is-the-difference-in-spending-between-the-country-to-which-the-most-was-sold-versus-the-country-to-which-the-least-was-sold" class="section level3">
-<h3>14. What is the difference in spending between the country to which
-the most was sold versus the country to which the least was sold?</h3>
+<div id="what-is-the-difference-in-spending-between-the-country-to-which-the-most-was-sold-versus-the-country-to-which-the-least-was-sold" class="section level2">
+<h2>14. What is the difference in spending between the country to which
+the most was sold versus the country to which the least was sold?</h2>
 <pre class="sql"><code>SELECT MAX(TotalSales) - MIN(TotalSales) AS SalesDifference
 FROM(
   SELECT C.Country, SUM(P.Price * OD.Quantity) AS TotalSales
@@ -916,8 +917,8 @@ FROM(
 </table>
 </div>
 </div>
-<div id="which-country-has-the-most-customers" class="section level3">
-<h3>15. Which country has the most customers?</h3>
+<div id="which-country-has-the-most-customers" class="section level2">
+<h2>15. Which country has the most customers?</h2>
 <pre class="sql"><code>SELECT Country, COUNT(CustomerID) AS NumCustomers
 FROM Customers
 GROUP BY Country
@@ -941,9 +942,9 @@ LIMIT 1;</code></pre>
 </table>
 </div>
 </div>
-<div id="which-employee-sold-the-most-in-terms-of-dollar-amount-sold" class="section level3">
-<h3>16. Which employee sold the most in terms of “dollar amount”
-sold?</h3>
+<div id="which-employee-sold-the-most-in-terms-of-dollar-amount-sold" class="section level2">
+<h2>16. Which employee sold the most in terms of “dollar amount”
+sold?</h2>
 <pre class="sql"><code>SELECT E.FirstName, E.LastName, SUM(OD.Quantity * P.Price) AS TotalRevenue
 FROM Employees E
 JOIN Orders O ON E.EmployeeID = O.EmployeeID
@@ -972,8 +973,8 @@ LIMIT 1;</code></pre>
 </table>
 </div>
 </div>
-<div id="which-customers-name-and-id-have-never-bought-anything" class="section level3">
-<h3>17. Which customers (name and ID) have never bought anything?</h3>
+<div id="which-customers-name-and-id-have-never-bought-anything" class="section level2">
+<h2>17. Which customers (name and ID) have never bought anything?</h2>
 <pre class="sql"><code>SELECT CustomerID, CustomerName
 FROM Customers
 WHERE CustomerID NOT IN (SELECT DISTINCT CustomerID FROM Orders);</code></pre>
@@ -1031,9 +1032,9 @@ WHERE CustomerID NOT IN (SELECT DISTINCT CustomerID FROM Orders);</code></pre>
 </table>
 </div>
 </div>
-<div id="what-is-the-average-price-of-the-products-sold-by-each-supplier" class="section level3">
-<h3>18. What is the average price of the products sold by each
-supplier?</h3>
+<div id="what-is-the-average-price-of-the-products-sold-by-each-supplier" class="section level2">
+<h2>18. What is the average price of the products sold by each
+supplier?</h2>
 <pre class="sql"><code>SELECT S.SupplierName, AVG(P.Price) AS AverageProductPrice
 FROM Suppliers S
 JOIN Products P ON S.SupplierID = P.SupplierID
@@ -1092,9 +1093,9 @@ GROUP BY S.SupplierName;</code></pre>
 </table>
 </div>
 </div>
-<div id="to-which-customer-was-the-most-recent-order-sent" class="section level3">
-<h3>19. To which customer was the most recent order sent?</h3>
-<pre class="sql"><code>SELECT O.OrderID, C.CustomerName, C.Country
+<div id="to-which-customer-was-the-most-recent-order-sent" class="section level2">
+<h2>19. To which customer was the most recent order sent?</h2>
+<pre class="sql"><code>SELECT C.CustomerName
 FROM Orders O
 JOIN Customers C ON O.CustomerID = C.CustomerID
 ORDER BY O.OrderDate DESC
@@ -1104,24 +1105,20 @@ LIMIT 1;</code></pre>
 <caption>1 records</caption>
 <thead>
 <tr class="header">
-<th align="right">OrderID</th>
 <th align="left">CustomerName</th>
-<th align="left">Country</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="right">10399</td>
 <td align="left">Vaffeljernet</td>
-<td align="left">Denmark</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div id="from-how-many-different-unique-suppliers-do-the-products-come-from" class="section level3">
-<h3>20. From how many different (unique) suppliers do the products come
-from?</h3>
+<div id="from-how-many-different-unique-suppliers-do-the-products-come-from" class="section level2">
+<h2>20. From how many different (unique) suppliers do the products come
+from?</h2>
 <pre class="sql"><code>SELECT COUNT(DISTINCT SupplierID) AS NumberOfSuppliers
 FROM Products;</code></pre>
 <div class="knitsql-table">
